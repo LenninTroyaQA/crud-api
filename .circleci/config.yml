@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  Tests:
+    docker:
+      - image: lennint/python-browsers-brew:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: "Install requirements and run tests"
+          command: |
+            git submodule add https://github.com/LenninTroyaQA/tests-api tests-api
+            pytest --alluredir=allure-results
+            allure generate allure-results -o vice-frontend-tests/allure-report
+      - store_artifacts:
+          path: tests-api/allure-report
+
+workflows:
+  Testing:
+    jobs:
+      - Tests:
+          filters:
+            branches:
+              only: /^release-.*$/
