@@ -11,6 +11,7 @@ jobs:
           name: "Install requirements and run tests"
           command: |
             git submodule add https://github.com/LenninTroyaQA/tests-api tests-api
+            pip install -r "requirements"
             pytest --alluredir=allure-results
             allure generate allure-results -o vice-frontend-tests/allure-report
       - store_artifacts:
