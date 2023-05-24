@@ -13,13 +13,13 @@ jobs:
             npm install
             npm start &
             sleep 10
-            git submodule add https://github.com/LenninTroyaQA/tests-api tests-api
-            pip install -r tests-api/requirements.txt
+            git submodule add https://github.com/LenninTroyaQA/tests-api
+            pip install -r requirements.txt
             pytest --alluredir=allure-results
             ls
-            allure generate allure-results -o tests-api/allure-report
+            allure generate allure-results -o allure-report
       - store_artifacts:
-          path: tests-api/allure-report
+          path: allure-report
 
 workflows:
   Testing:
