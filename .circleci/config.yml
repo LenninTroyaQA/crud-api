@@ -20,7 +20,7 @@ jobs:
             allure generate allure-results -o allure-report
             sleep 10
       - store_artifacts:
-          path: allure-report
+          path: tests-api/allure-report
 workflows:
   Testing:
     jobs:
