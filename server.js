@@ -33,6 +33,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Server started on port : ${PORT}`);
+const serverInstance = server.listen(PORT, () => {
+  const { port } = serverInstance.address();
+  console.log(`Server started at http://localhost:${port}`);
 });
