@@ -17,7 +17,6 @@ jobs:
             cd tests-api
             pytest --alluredir=allure-results || true
             allure generate allure-results -o allure-report
-            sleep 10
 
       - store_artifacts:
           path: tests-api/allure-report
