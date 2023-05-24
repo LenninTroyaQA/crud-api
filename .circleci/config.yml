@@ -18,9 +18,12 @@ jobs:
             pip install -r requirements.txt
             pytest --alluredir=allure-results
             allure generate allure-results -o allure-report
+            cd allure-report
             sleep 10
+
       - store_artifacts:
           path: tests-api/allure-report
+
 workflows:
   Testing:
     jobs:
