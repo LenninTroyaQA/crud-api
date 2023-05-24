@@ -8,14 +8,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Setup API"
-          command: |
-            npm install
-            npm start &
-            sleep 10
-      - run:
           name: "Install requirements and run tests"
           command: |
+            npm install
+            apk 
+            npm start &
+            sleep 10
             git submodule add https://github.com/LenninTroyaQA/tests-api tests-api
             pip install -r tests-api/requirements.txt
             pytest --alluredir=allure-results
