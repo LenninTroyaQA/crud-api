@@ -23,9 +23,9 @@ jobs:
           path: tests-api/allure-report
 
 workflows:
-  Testing:
+  Build and Test:
     jobs:
-      - Tests:
+      - Build and Test:
           filters:
             branches:
               only: /^release-.*$/
