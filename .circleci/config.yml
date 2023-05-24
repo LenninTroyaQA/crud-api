@@ -12,6 +12,7 @@ jobs:
           command: |
             npm install
             npm start &
+            sleep 10
       - run:
           name: "Install requirements and run tests"
           command: |
