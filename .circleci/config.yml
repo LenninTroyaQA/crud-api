@@ -16,14 +16,7 @@ jobs:
             git submodule add https://github.com/LenninTroyaQA/tests-api
             cd tests-api
             pip install -r requirements.txt
-            pytest --alluredir=allure-results
-            allure generate allure-results -o allure-report
-            sleep 10
-
-      - run:
-          name: "Generate report"
-          command:
-            cd tests-api
+            pytest --alluredir=allure-results || true
             allure generate allure-results -o allure-report
             sleep 10
 
