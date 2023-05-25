@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install requirements and run tests"
+          name: "Build and test API"
           command: |
             npm install
             npm start &
